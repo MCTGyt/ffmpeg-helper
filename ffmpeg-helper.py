@@ -1,5 +1,6 @@
 #!/usr/bin/python3
  
+import webbrowser
 import os
 import tkinter
 top = tkinter.Tk()
@@ -7,19 +8,33 @@ top.title("ffmpeg助手")
 top.geometry('500x300')
 
 def start():
-    tkinter.messagebox.showinfo(title='Start', message='开始压缩，自定义选项将在下个版本开放')
-    os.system("ffmpeg" +" " + "-i" + " " + e2.get() + " " + "-s" + " " + "vga" + " " + e3.get())
+    #tkinter.messagebox.showinfo(title='Start', message='开始压缩，自定义选项将在下个版本开放')
+    os.system("ffmpeg" +" " + "-i" + " " + e2.get() + " " + e4.get() + " " + e3.get())
 
-l1 = tkinter.Label(top, text="源文件")
+def open_blog(event):
+    webbrowser.open_new_tab("https://mctg.ink")
+
+l1 = tkinter.Label(top, text="源文件*")
 e2 = tkinter.Entry(top, show=None, font=('Arial', 14))  # 显示成明文形式
-l2 = tkinter.Label(top, text="输出文件")
+l2 = tkinter.Label(top, text="输出文件*")
 e3 = tkinter.Entry(top, show=None, font=('Arial', 14))  # 显示成明文形式
 b1 = tkinter.Button(top, text="开始", font=('Arial', 12), width=10, height=1, command=start)
-l1.pack()
-e2.pack()
-l2.pack()
-e3.pack()
-b1.pack()
+e4 = tkinter.Entry(top, text="-s vga")
+l5 = tkinter.Label(top, text="自定义参数 例如 -s vga*")
+
+l4 = tkinter.Label(top, text="by 天哥de博客", fg="blue")
+l4.bind("<Button-1>", open_blog)
+
+
+l1.pack() #源文件
+e2.pack() #源文件input
+l2.pack() #输出文件
+e3.pack() #输出文件input
+l5.pack() #自定义参数
+e4.pack() #自定义参数input
+b1.pack() #开始button
+l4.pack() #blog_link
+
 
 # 进入消息循环
 top.mainloop()
