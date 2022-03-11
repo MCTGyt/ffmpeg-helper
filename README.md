@@ -1,9 +1,10 @@
 # ffmpeg-helper
-ffmpeg助手，这是我第二个python项目
+![](https://i.imgur.com/HvWlJfN.png)
+ffmpeg助手，这是一个由python写的软件
 # 说明
 你可以
 - [x] 压缩gif,mp4等视频及图片
-- [ ] 自定义压缩选项
+- [x] 自定义压缩选项
 - [ ] 自动安装ffmpeg
 
 # 如何使用
